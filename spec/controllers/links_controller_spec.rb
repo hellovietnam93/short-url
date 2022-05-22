@@ -94,9 +94,8 @@ RSpec.describe LinksController, type: :controller do # rubocop:disable Metrics/B
       it do
         get :show, params: { slug: link.slug }
 
-        expect(response.status).to eq 302
+        expect(response.status).to eq 200
         expect(link.reload.clicked).to eq 1
-        expect(subject).to redirect_to link.url
       end
     end
   end
