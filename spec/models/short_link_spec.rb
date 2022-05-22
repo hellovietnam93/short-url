@@ -82,11 +82,37 @@ RSpec.describe ShortLink do # rubocop:disable Metrics/BlockLength
 
       include_examples("not valid short url")
     end
+
+    context "slug does not have valid format" do
+      let(:url) { "http://#{ENV['APP_HOST']}:3000/s/8eb561/xs" }
+
+      include_examples("not valid short url")
+    end
+
+    context "slug does not have valid format" do
+      let(:url) { "http://#{ENV['APP_HOST']}:3000/s/8eb561*/" }
+
+      include_examples("not valid short url")
+    end
   end
 
   describe ".slug" do
     context "valid slug format" do
       let(:slug) { "8eb561" }
+      let(:url) { "http://#{ENV['APP_HOST']}:3000/s/#{slug}" }
+
+      include_examples("valid slug")
+    end
+
+    context "valid slug format" do
+      let(:slug) { "8eb-561" }
+      let(:url) { "http://#{ENV['APP_HOST']}:3000/s/#{slug}" }
+
+      include_examples("valid slug")
+    end
+
+    context "valid slug format" do
+      let(:slug) { "8eb_561" }
       let(:url) { "http://#{ENV['APP_HOST']}:3000/s/#{slug}" }
 
       include_examples("valid slug")

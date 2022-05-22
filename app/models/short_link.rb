@@ -7,7 +7,7 @@ class ShortLink
 
   ###
   # constants
-  VALID_SLUG = %r{/s/.*[a-zA-z0-9]+[/|a-zA-z0-9]$}
+  VALID_SLUG = %r{^/s/[\w|\-D]+/?$}
 
   attr_reader :uri, :url
 

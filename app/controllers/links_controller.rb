@@ -20,7 +20,7 @@ class LinksController < ApplicationController
     # TODO
     # Get link from cache for better performance
     link.update_attribute(:clicked, link.clicked + 1)
-    redirect_to link.url, allow_other_host: true
+    render_jsonapi link
   end
 
   def decode

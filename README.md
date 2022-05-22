@@ -1,5 +1,11 @@
 # ShortURL
 
+Build and sample application to help user generate a short link
+
+## API document
+
+- https://s-u-t.herokuapp.com/doc/index.html
+
 ## Getting Started
 
 Here are steps to run the service locally:
@@ -43,6 +49,24 @@ rails db:setup
 ```bash
 rails s
 ```
+
+## Evaluation
+
+- [x] Ruby best practices
+    - Rubocop
+    - bundle-audit check
+    - brakeman
+- [x] API implemented featuring a /encode and /decode endpoint
+    - Encode endpoint: https://s-u-t.herokuapp.com/encode - POST
+    - Decode endpoint: https://s-u-t.herokuapp.com/decode - GET
+- [x] Completeness: Did you complete the features? Are all the tests running?
+    - All feature completed
+    - UT: 100%
+- [x] Correctness: Does the functionality act in sensible, thought-out ways?
+- [x] Maintainability: Is it written in a clean, maintainable way?
+- [x] [Security: Have you identified potential issues and mitigated or documented them?](./documents/security.md)
+- [x] [Scalability: What scalability issues do you foresee in your implementation and how do you plan to work around those issues?](./documents/scalability.md)
+- [x] [Sample run](./documents/sample.md)
 
 ## Running the tests
 
@@ -88,59 +112,4 @@ bundle-audit check --update
 
 ```bash
 bundle-audit check --update > bundle-audit.txt
-```
-
-## API document
-
-- https://s-u-t.herokuapp.com/doc/index.html
-
-## Test API
-
-*Encode an origin url*
-
-```bash
-curl --location --request POST 'https://s-u-t.herokuapp.com/encode' \
---header 'Content-Type: application/json' \
---data-raw '{
-    "link": {
-        "url": "https://zingnews.vn/khan-gia-xep-hang-dai-de-co-vu-esports-o-sea-games-31-post1319504.html#zingweb_home_sectionfeatured1"
-    }
-}'
-```
-
-*Response*
-
-```json
-{
-    "data": {
-        "id": "1",
-        "type": "link",
-        "attributes": {
-            "url": "https://zingnews.vn/khan-gia-xep-hang-dai-de-co-vu-esports-o-sea-games-31-post1319504.html#zingweb_home_sectionfeatured1",
-            "short": "https://s-u-t.herokuapp.com/s/6a325d",
-            "clicked": 0
-        }
-    }
-}
-```
-
-*Decode an short url*
-```bash
-curl --location --request GET 'https://s-u-t.herokuapp.com/decode?url=https://s-u-t.herokuapp.com/s/ed16d1'
-```
-
-*Response*
-
-```bash
-{
-    "data": {
-        "id": "1",
-        "type": "link",
-        "attributes": {
-            "url": "https://zingnews.vn/khan-gia-xep-hang-dai-de-co-vu-esports-o-sea-games-31-post1319504.html#zingweb_home_sectionfeatured1",
-            "short": "https://s-u-t.herokuapp.com/s/6a325d",
-            "clicked": 1
-        }
-    }
-}
 ```

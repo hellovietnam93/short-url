@@ -20,7 +20,7 @@ gem "tzinfo-data", platforms: %i(mingw mswin x64_mingw jruby)
 # gem "kredis"
 
 group :development, :test do
-  gem "brakeman", "~> 3.3", ">= 3.3.2", require: false
+  gem "brakeman", "~> 5.2", ">= 5.2.3", require: false
   gem "bundler-audit", "~> 0.9.0"
   gem "debug", platforms: %i(mri mingw x64_mingw)
   gem "factory_bot_rails", "~> 6.2.0"
