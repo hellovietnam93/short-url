@@ -1,0 +1,25 @@
+get:
+  summary: decode short url to origin url
+  tags:
+  - Link
+  description: API to decode short url to origin url
+  parameters:
+    - in: query
+      name: url
+      schema:
+        type: string
+        example: https://s-u-t.herokuapp.com/s/ed16d1
+      required: true
+  responses:
+    200:
+      $ref: "../../definitions/link.yaml#/detail"
+    400:
+      description: URL invalid / ShortURL invalid
+      content:
+        application/json:
+          schema:
+            oneOf:
+              - $ref: "../../definitions/errors_schema.yaml#/components/schemas/invalid_url"
+              - $ref: "../../definitions/errors_schema.yaml#/components/schemas/invalid_short_url"
+    404:
+      $ref: "../../definitions/common_errors.yaml#/link_not_found"

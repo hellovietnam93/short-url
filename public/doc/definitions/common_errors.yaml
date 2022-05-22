@@ -1,0 +1,12 @@
+invalid_params:
+  description: Invalid parameters
+  content:
+    application/json:
+      schema:
+        $ref: "./errors_schema.yaml#/components/schemas/invalid_parameters"
+link_not_found:
+  description: Link not found
+  content:
+    application/json:
+      schema:
+        $ref: "./errors_schema.yaml#/components/schemas/link_not_found"
