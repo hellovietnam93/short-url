@@ -1,0 +1,90 @@
+components:
+  schemas:
+    invalid_parameters:
+      type: object
+      properties:
+        success:
+          type: boolean
+          example: false
+        errors:
+          type: array
+          items:
+            type: object
+            properties:
+              id:
+                type: string
+                example: link
+              message:
+                type: string
+                example: "params is missing or the value is empty: link"
+    invalid_url:
+      type: object
+      properties:
+        success:
+          type: boolean
+          example: false
+        errors:
+          type: array
+          items:
+            type: object
+            properties:
+              id:
+                type: string
+                example: link
+              message:
+                type: string
+                example: Url is invalid.
+    invalid_short_url:
+      type: object
+      properties:
+        success:
+          type: boolean
+          example: false
+        errors:
+          type: array
+          items:
+            type: object
+            properties:
+              id:
+                type: string
+                example: link
+              message:
+                type: string
+                example: Short Url is invalid.
+    link_not_found:
+      type: object
+      properties:
+        success:
+          type: boolean
+          example: false
+        errors:
+          type: array
+          items:
+            type: object
+            properties:
+              id:
+                type: string
+                example: link
+              message:
+                type: string
+                example: link not found
+    validate_fails:
+      type: object
+      properties:
+        success:
+          type: boolean
+          example: false
+        errors:
+          type: array
+          items:
+            type: object
+            properties:
+              id:
+                type: string
+                example: link
+              field:
+                type: string
+                example: url
+              message:
+                type: string
+                example: Url is too long (maximum is 255 characters)

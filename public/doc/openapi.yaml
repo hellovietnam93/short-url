@@ -1,0 +1,18 @@
+openapi: 3.0.1
+info:
+  description: "API document"
+  version: 0.1.9
+  title: "Shortern url"
+servers:
+  - url: "https://s-u-t.herokuapp.com/"
+    description: "Prd server"
+  - url: "http://localhost:3000/"
+    description: "Local server (Use dev data)"
+security:
+  - Authorization: []
+paths:
+  # Link
+  /encode:
+    $ref: "paths/links/encode.yaml"
+  /decode:
+    $ref: "paths/links/decode.yaml"

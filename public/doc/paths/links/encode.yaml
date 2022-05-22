@@ -1,0 +1,32 @@
+post:
+  summary: encode origin url to short url
+  tags:
+  - Link
+  description: API to encode origin url to short url
+  requestBody:
+    required: true
+    content:
+      application/json:
+        schema:
+          type: object
+          properties:
+            link:
+              type: object
+              properties:
+                url:
+                  type: string
+                  example: https://rubygems.org
+              required:
+                - url
+          required:
+            - link
+  responses:
+    200:
+      description: Successfully / missing params / validate fails
+      content:
+        application/json:
+          schema:
+            oneOf:
+              - $ref: "../../definitions/link.yaml#/components/schemas/create_success"
+              - $ref: "../../definitions/errors_schema.yaml#/components/schemas/invalid_parameters"
+              - $ref: "../../definitions/errors_schema.yaml#/components/schemas/validate_fails"

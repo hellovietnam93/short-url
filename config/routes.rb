@@ -5,6 +5,7 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   # root "articles#index"
+  root "homes#index"
   resources :links, only: :index
   post "encode", to: "links#create"
   get "decode", to: "links#decode"

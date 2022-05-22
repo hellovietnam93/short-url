@@ -1,0 +1,48 @@
+detail:
+  description: Get detail successfully
+  content:
+    application/json:
+      schema:
+        type: object
+        properties:
+          data:
+            $ref: "#/components/information"
+list:
+  description: List link successfully
+  content:
+    application/json:
+      schema:
+        type: object
+        properties:
+          data:
+            type: array
+            items:
+              $ref: "#/components/information"
+components:
+  information:
+    type: object
+    properties:
+      id:
+        type: string
+        example: 1
+      type:
+        type: string
+        example: link
+      attributes:
+        type: object
+        properties:
+          url:
+            type: string
+            example: https://rubygems.org
+          short:
+            type: string
+            example: https://s-u-t.herokuapp.com/s/ed16d1
+          clicked:
+            type: integer
+            example: 0
+  schemas:
+    create_success:
+      type: object
+      properties:
+        data:
+          $ref: "#/components/information"
