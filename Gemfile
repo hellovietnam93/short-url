@@ -6,10 +6,12 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 ruby "3.0.2"
 
 gem "bootsnap", require: false
+gem "jsonapi-serializer", "~> 2.2"
 gem "pg", "~> 1.1"
 gem "puma", "~> 5.0"
 gem "rack-cors", "~> 1.1.1"
 gem "rails", "~> 7.0.3"
+gem "settingslogic", "~> 2.0.9"
 gem "tzinfo-data", platforms: %i(mingw mswin x64_mingw jruby)
 # Use Redis adapter to run Action Cable in production
 # gem "redis", "~> 4.0"

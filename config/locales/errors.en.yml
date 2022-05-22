@@ -1,0 +1,9 @@
+en:
+  errors:
+    records:
+      not_found: "%{resource} not found"
+    links:
+      invalid_url: Url is invalid.
+      invalid_short_url: Short Url is invalid.
+    params:
+      invalid: "params is missing or the value is empty: %{param}"

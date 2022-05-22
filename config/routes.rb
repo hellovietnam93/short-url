@@ -5,4 +5,8 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   # root "articles#index"
+  resources :links, only: :index
+  post "encode", to: "links#create"
+  get "decode", to: "links#decode"
+  get "/s/:slug", to: "links#show", as: :short
 end
