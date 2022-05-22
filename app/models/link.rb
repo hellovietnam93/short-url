@@ -11,7 +11,7 @@ class Link < ApplicationRecord
   before_validation :set_slug, if: :require_generate_slug?
 
   def short
-    Rails.application.routes.url_helpers.short_url(slug: slug)
+    Rails.application.routes.url_helpers.short_url(slug: slug, protocol: "https")
   end
 
   ###############################

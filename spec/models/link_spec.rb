@@ -20,7 +20,7 @@ RSpec.describe Link, type: :model do # rubocop:disable Metrics/BlockLength
     let(:link) { create :link }
 
     it "return short link" do
-      expect(link.short).to eq "http://#{ENV['APP_HOST']}:3000/s/#{link.slug}"
+      expect(link.short).to eq "https://#{ENV['APP_HOST']}:3000/s/#{link.slug}"
     end
   end
 
